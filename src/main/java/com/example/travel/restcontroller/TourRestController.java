@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TourRestController {
@@ -29,5 +30,21 @@ public class TourRestController {
     @GetMapping("/api/get-tours")
     public ResponseEntity<List<Tour>> getTours() {
         return new ResponseEntity<>(tourRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/api/get-tour/{id}")
+    public ResponseEntity<Tour> getTour(@PathVariable("id") Integer id) {
+        Optional<Tour> tourOptional = tourRepository.findById(id);
+        if (!tourOptional.isPresent()) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(tourOptional.get(), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/api/save-tour", consumes = "application/json")
+    public ResponseEntity<Tour> saveTour(@RequestBody Tour tour) {
+        tourRepository.save(tour);
+        return new ResponseEntity<>(tour, HttpStatus.ACCEPTED);
     }
 }

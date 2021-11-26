@@ -1,5 +1,4 @@
 function postTour() {
-    console.log("test")
     const tourName = document.getElementById("tour-name").value;
     const price = document.getElementById("price").value;
     const description = document.getElementById("description").value;

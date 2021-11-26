@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit tour</title>
+</head>
+<body onload="getTour()">
+<h1 id="result" style="display: none"></h1>
+
+<label for="tour-name">Tour name: </label>
+<input type="text" id="tour-name"><br>
+
+<label for="price">Price per person: </label>
+<input type="number" id="price"> <br>
+
+<label for="description">Description</label>
+<textarea id="description" rows="10" cols="50"> </textarea><br>
+
+<button onclick="discardChanges()">Discard changes</button>
+<button onclick="saveTour()">Save tour</button>
+<script src="../js/edit-tour.js"></script>
+</body>
+</html>
