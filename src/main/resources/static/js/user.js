@@ -60,7 +60,7 @@ function saveUser() {
     }
 function refresh() {
     document.getElementById("create-user").innerHTML = "";
-    fetch();
+    fetchUser();
 }
 
 let userLogin = {
@@ -68,7 +68,7 @@ let userLogin = {
     "password": "",
 }
 let postUserUrl = "http://localhost:8080/";
-function startLogin(btn) {
+function startLogin() {
     document.getElementById("login").style.display = "none";
     let firstName = inpGetUser[0].value;
     let password = inpGetUser[1].value;

@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class UserController {
 
-    @GetMapping("/login")
-    public String get_user() {
-        return "login";
-    }
 
 
     @GetMapping("/")
@@ -20,7 +16,7 @@ public class UserController {
 
     @GetMapping("/createUser/{id}")
     public String activityPage(@PathVariable("id") Integer id) {
-        return "CreateUser";
+        return "createUser";
     }
 
 }
