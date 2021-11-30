@@ -33,7 +33,7 @@ public class UserRestController {
 
 
 
-    @PostMapping(value ="api/user_login", consumes = "application/json")
+    @PostMapping(value ="api/userLogin", consumes = "application/json")
     public Boolean userLogin(@RequestBody User user) {
         Optional<User> newUser = userRepository.findByFirstNameAndPassword(user.getFirstName(), user.getPassword());
         newUser.ifPresent(value -> System.out.println(value.getEmail()));
@@ -42,5 +42,5 @@ public class UserRestController {
         }
         else return false;
     }
-
+    
 }

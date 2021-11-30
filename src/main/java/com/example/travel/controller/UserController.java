@@ -9,14 +9,24 @@ public class UserController {
 
 
 
-    @GetMapping("/")
-    public String index() {
+    @GetMapping("/createUser")
+    public String createUser() {
         return "createUser";
     }
 
-    @GetMapping("/createUser/{id}")
-    public String activityPage(@PathVariable("id") Integer id) {
+    @GetMapping("/getUser/{id}")
+    public String getUser(@PathVariable("id") Integer id) {
         return "createUser";
+    }
+
+    @GetMapping("/createAdmin")
+    public String createAdmin() {
+        return "createAdmin";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
 }

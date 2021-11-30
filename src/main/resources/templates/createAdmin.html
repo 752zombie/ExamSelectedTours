@@ -13,7 +13,7 @@
 </head>
 <body class="d-flex flex-column h-100" >
 
-<h1>Selected Tours</h1>
+<h1>Create admin</h1>
 
 <main role="main" class="flex-shrink-0" onclick="fetchUser()">
     <div class="container mt-5">
@@ -21,23 +21,19 @@
 
             <div class="container mt-5">
                 <div class="jumbotron">
-                    <button onclick="createUser()">Create Profile</button>
+                    <button onclick="createUser()">Create Admin</button>
                     <div id="create-user" style="display: none">
-                    <input type="text" id="firstName" name="firstName" placeholder="First name" >
-                    <input type="text" id="lastName"  name="lastName" placeholder="Last name" >
-                    <input type="text" id="password"  name="password" placeholder="Password" >
-                    <input type="text" id= "email"    name="email" placeholder="Email" >
-                    <input type="text" id="role"    name="role" placeholder="role" >
-                    <div class="input-fullwidth">
-                    <button onclick="saveUser()">Save User</button>
-                    </div>
-                        <div>
-                            <h4 id="create_user_header"> </h4>
+                        <input type="text" id="firstName" name="firstName" placeholder="First name" >
+                        <input type="text" id="lastName"  name="lastName" placeholder="Last name" >
+                        <input type="text" id="password"  name="password" placeholder="Password" >
+                        <input type="text" id= "email"    name="email" placeholder="Email" >
+                        <input type="text" id="role"    name="role" placeholder="role" >
+                        <div class="input-fullwidth">
+                            <button onclick="saveUser()">Save Admin</button>
                         </div>
+                    </div>
                 </div>
-
-                </div>
-           </div>
+            </div>
         </div>
     </div>
 </main>

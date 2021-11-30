@@ -67,7 +67,7 @@ let userLogin = {
     "firstName": "",
     "password": "",
 }
-let postUserUrl = "http://localhost:8080/";
+let postUserUrl = "http://localhost:8080/createUser";
 function startLogin() {
     document.getElementById("login").style.display = "none";
     let firstName = inpGetUser[0].value;
