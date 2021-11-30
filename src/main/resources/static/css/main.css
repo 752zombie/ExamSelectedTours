@@ -1,0 +1,19 @@
+#menu {
+    color: floralwhite;
+    font-family: "Arial Black";
+    text-align: center;
+}
+
+body {
+    background-image: url("../img/selected-tours.jpeg");
+}
+
+.jumbotron {
+    background-color: aliceblue;
+}
+
+h1 {
+    font-family: Arial;
+    color: black;
+    text-align: center;
+}

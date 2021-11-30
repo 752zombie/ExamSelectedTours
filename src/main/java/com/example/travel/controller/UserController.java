@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class UserController {
 
-
-
     @GetMapping("/createUser")
     public String createUser() {
         return "createUser";

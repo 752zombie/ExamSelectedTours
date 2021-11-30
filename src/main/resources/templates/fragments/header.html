@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="header">
+    <div class="navbar-header">
+        <!-- Go to Home page -->
+        <a class="navbar-brand" th:href="@{/}">Home</a>
+    </div>
+
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <!-- Go to login Page -->
+            <a class="nav-link" th:href="@{/createUser}">User Login</a>
+            <a class="nav-link" th:href="@{/createAdmin}">Admin Login</a>
+        </ul>
+    </div>
+</nav>
