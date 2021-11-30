@@ -1,13 +1,8 @@
-#menu {
-    color: floralwhite;
-    font-family: "Arial Black";
-    text-align: center;
-}
-
 body {
-    background-image: url("../img/selected-tours.jpeg");
+    background-image: url("../img/clouds.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
+    opacity: 0.5%;
 }
 
 .jumbotron {
@@ -18,5 +13,5 @@ h1 {
     font-family: Arial;
     font-width: bold;
     color: black;
-    text-align: center;
 }
+

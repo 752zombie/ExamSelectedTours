@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
 <head>
     <meta charset="UTF-8">
-    <title>Create a new tour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css"/>
+    <title>Create Tour</title>
+
 </head>
-<body>
-<h1 id="result" style="display: none"></h1>
 
-<label for="tour-name">Tour name: </label>
-<input type="text" id="tour-name" placeholder="a descriptive tour name"><br>
+<body class="d-flex flex-column h-100">
+<div th:replace="~{fragments/header :: header}"> </div>
 
-<label for="price">Price per person: </label>
-<input type="number" id="price" placeholder="price in DKK"> <br>
+<main role="main" class="flex-shrink-0" onclick="fetchUser()">
+    <div class="container mt-5">
+        <div class="jumbotron">
 
-<label for="description">Description</label>
-<input type="text" id="description" placeholder="detailed information about the tour..."> <br>
+            <h1 id="result" style="display: none"></h1>
 
-<button onclick="postTour()">Create tour</button>
+            <label for="tour-name">Tour name: </label>
+            <input type="text" id="tour-name" placeholder="a descriptive tour name"><br>
 
+            <label for="price">Price per person: </label>
+            <input type="number" id="price" placeholder="price in DKK"> <br>
+
+            <label for="description">Description</label>
+            <input type="text" id="description" placeholder="detailed information about the tour..."> <br>
+
+            <div class="input-fullwidth">
+                <button onclick="postTour()">Create tour</button>
+            </div>
+        </div>
+    </div>
+</main>
 
 <script src="../js/create-tour.js"></script>
 </body>
