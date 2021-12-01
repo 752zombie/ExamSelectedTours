@@ -68,6 +68,7 @@ let userLogin = {
     "password": "",
 }
 let postUserUrl = "http://localhost:8080/createUser";
+let loginApiUrl = "http://localhost:8080/api/userLogin";
 function startLogin() {
     document.getElementById("login").style.display = "none";
     let firstName = inpGetUser[0].value;
@@ -77,17 +78,20 @@ function startLogin() {
     userLogin.password = password;
     body = JSON.stringify(userLogin);
     postRequest.body = body;
-    fetch(postUserUrl, postRequest)
+    fetch(loginApiUrl, postRequest)
         .then(response => response.json())
         .then(loginSuccess => {
-            if (loginSuccess){
+            if (loginSuccess) {
                 window.location.href = "http://localhost:8080/create-tour";
             }
+
             else {
-                alert('Wrong username / firstname')
+                alert('Wrong username / firstname');
             }
+
+
         })
-        .catch(error => console.log(error));
+        .catch(error => alert('Wrong username / firstname'));
 
 
 }
