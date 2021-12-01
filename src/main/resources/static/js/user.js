@@ -67,12 +67,12 @@ let userLogin = {
     "firstName": "",
     "password": "",
 }
-let postUserUrl = "http://localhost:8080/createUser";
+
+let postUserUrl = "http://localhost:8080/api/userLogin";
 function startLogin() {
     document.getElementById("login").style.display = "none";
     let firstName = inpGetUser[0].value;
     let password = inpGetUser[1].value;
-    console.log(firstName + "from login")
     userLogin.firstName = firstName;
     userLogin.password = password;
     body = JSON.stringify(userLogin);
@@ -91,8 +91,9 @@ function startLogin() {
 
 
 }
-
 const inpGetUser = document.querySelectorAll(".userInfo");
 const pbGetLogin = document.querySelector(".pbGet");
 
 pbGetLogin.addEventListener('click', startLogin);
+
+
