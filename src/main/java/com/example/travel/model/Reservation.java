@@ -11,12 +11,12 @@ public class Reservation {
     @GeneratedValue
     Integer reservationId;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "tourId")
     private Tour tour;
 
     @OneToMany
-    @JoinColumn(name = "passengerId")
+    @JoinColumn(name = "reservationId")
     private Set<Passenger> passengers = new HashSet<>();
 
     public Integer getReservationId() {
