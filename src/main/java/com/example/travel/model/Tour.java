@@ -18,8 +18,8 @@ public class Tour {
     Integer ticketsReserved = 0;
 
     @OneToMany
-    @JoinColumn(name = "tourId")
-    private Set<Passenger> passengers = new HashSet<>();
+    @JoinColumn(name = "reservationId")
+    private Set<Reservation> reservation;
 
     public Tour() {}
 
@@ -75,11 +75,19 @@ public class Tour {
         this.tourId = tour_id;
     }
 
-    public Set<Passenger> getPassengers() {
-        return passengers;
+    public Integer getTourId() {
+        return tourId;
     }
 
-    public void setPassengers(Set<Passenger> passengers) {
-        this.passengers = passengers;
+    public void setTourId(Integer tourId) {
+        this.tourId = tourId;
+    }
+
+    public Set<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Set<Reservation> reservation) {
+        this.reservation = reservation;
     }
 }

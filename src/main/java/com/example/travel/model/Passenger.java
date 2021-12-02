@@ -11,11 +11,7 @@ public class Passenger {
     String name;
 
     @ManyToOne
-    @JoinColumn(name = "tourId")
-    private Tour tour;
-
-    @ManyToOne
-    @JoinColumn(name = "resevationId")
+    @JoinColumn(name = "reservationId")
     private Reservation reservation;
 
     public Passenger() {}

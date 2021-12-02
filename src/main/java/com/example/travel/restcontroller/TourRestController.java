@@ -79,6 +79,7 @@ public class TourRestController {
             passengerRepository.save(passenger1);
             passengersSetList.add(passenger1);
         }
+
         Reservation reservation = new Reservation();
         reservation.setPassengers(passengersSetList);
         Optional<Tour> tourOptional = tourRepository.findById(tourId);
