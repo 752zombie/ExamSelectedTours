@@ -17,7 +17,7 @@
 <body class="d-flex flex-column h-100">
 <div th:replace="~{fragments/header :: header}"> </div>
 
-<main role="main" class="flex-shrink-0" onclick="fetchUser()">
+<main role="main" class="flex-shrink-0">
     <div class="container mt-5">
         <div class="jumbotron">
             <h2>Login</h2>
@@ -42,9 +42,9 @@
 </main>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
-</script>
+<!--<div th:replace="~{fragments/footer :: footer}"> </div>-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 <script src="/js/user.js"></script>
 
