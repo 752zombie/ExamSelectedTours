@@ -1,8 +1,10 @@
 let tours;
 
 function fetchTours() {
+    console.log(1);
     const url = "http://localhost:8080/api/get-tours";
     fetch(url).then(response => response.json()).then(data => {tours = data; listTours(data)});
+    console.log(2);
 
 }
 

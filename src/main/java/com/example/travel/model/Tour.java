@@ -18,7 +18,7 @@ public class Tour {
     Integer ticketsReserved = 0;
 
     @OneToMany
-    @JoinColumn(name = "reservationId")
+    @JoinColumn(name = "tourId")
     private Set<Reservation> reservation;
 
     public Tour() {}
