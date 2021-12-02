@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passagerer</title>
+</head>
+<body>
+<h1> Tilføj passagerer </h1>
+
+<div id="add_passengers">
+
+</div>
+
+<script th:inline="javascript">
+
+    let numberOfTickets = [[${numberOfTickets}]];
+    let tour_id = [[${tour_id}]];
+    tour_id = parseInt(tour_id)
+
+    let reserveForm = document.createElement("form");
+    reserveForm.setAttribute("method", "post")
+    reserveForm.setAttribute("action", "http://localhost:8080/api/book_tour/")
+    let travel_number_id = document.createElement("input")
+    travel_number_id.setAttribute("type", "hidden")
+    travel_number_id.setAttribute("value", tour_id)
+    travel_number_id.setAttribute("name", "tourId")
+    reserveForm.appendChild(travel_number_id)
+
+    for (let i = 0; i<numberOfTickets; i++) {
+        console.log(numberOfTickets)
+        let col = document.createElement("div");
+        col.setAttribute("class", "col-sm-4");
+
+        let card = document.createElement("div");
+        card.setAttribute("class", "card");
+
+        let innerCardBody = document.createElement("div");
+        innerCardBody.setAttribute("class", "card-body");
+
+        let passengerName = document.createElement("h4");
+        let labelText = document.createTextNode("Tilføj passagerens fulde navn");
+        passengerName.setAttribute("class", "card-title");
+        passengerName.appendChild(labelText);
+
+        let passengerNameInput = document.createElement("input");
+        passengerNameInput.setAttribute("class", "form-control")
+        passengerNameInput.style.width = "300px";
+        passengerNameInput.style.marginBottom = "5px";
+        passengerNameInput.setAttribute("type", "text");
+        passengerNameInput.setAttribute("name", "passengerInputList");
+        passengerNameInput.setAttribute("value", passengerNameInput.innerHTML);
+
+
+        col.appendChild(card);
+        card.appendChild(innerCardBody);
+        innerCardBody.appendChild(passengerName);
+        innerCardBody.appendChild(passengerNameInput);
+        reserveForm.appendChild(innerCardBody)
+
+    }
+        let reserveButton = document.createElement("button")
+        reserveButton.setAttribute("type", "submit");
+        reserveButton.setAttribute("class", "btn btn-primary");
+        let buttonText = document.createTextNode("Book rejse");
+
+        reserveButton.appendChild(buttonText);
+        reserveForm.appendChild(reserveButton);
+        let outerCardBody = document.createElement("div");
+        outerCardBody.setAttribute("class", "card-body");
+        outerCardBody.appendChild(reserveForm);
+
+        document.getElementById("add_passengers").appendChild(reserveForm);
+
+</script>
+
+
+
+</body>
+</html>
