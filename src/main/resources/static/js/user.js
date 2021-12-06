@@ -79,19 +79,31 @@ function startLogin() {
     body = JSON.stringify(userLogin);
     postRequest.body = body;
     fetch(loginApiUrl, postRequest)
-        .then(response => response.json())
-        .then(loginSuccess => {
-            if (loginSuccess) {
+        .then(response => {
+
+            if (response.status === 401) {
+                throw new Error('Wrong username or password');
+            }
+
+            else if (response.status !== 200) {
+                throw new Error("Network error");
+            }
+
+
+            return response.json()})
+        .then(user => {
+            console.log(user);
+            if (user.role === "admin") {
                 window.location.href = "http://localhost:8080/create-tour";
             }
 
             else {
-                alert('Wrong username / firstname');
+                window.location.href = "http://localhost:8080";
             }
 
 
         })
-        .catch(error => alert('Wrong username / firstname'));
+        .catch(error => alert(error.message));
 
 
 }

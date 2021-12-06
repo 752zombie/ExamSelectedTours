@@ -3,6 +3,7 @@ package com.example.travel.restcontroller;
 import com.example.travel.model.User;
 import com.example.travel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,7 @@ public class UserRestController {
         if (userOptional.isPresent() ) {
             return new ResponseEntity<>(userOptional.get(), HttpStatus.OK);
         }else
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
     }
 
 
