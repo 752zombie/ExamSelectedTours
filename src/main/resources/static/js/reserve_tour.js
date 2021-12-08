@@ -48,6 +48,9 @@ function listTours(tours) {
         ticketsInput.setAttribute("type", "number");
         ticketsInput.setAttribute("name", "numberOfTickets");
         ticketsInput.setAttribute("value", ticketsInput.innerHTML);
+
+
+
         let reserveInput = document.createElement("input");
         reserveInput.setAttribute("type", "hidden");
         reserveInput.setAttribute("name", "id");

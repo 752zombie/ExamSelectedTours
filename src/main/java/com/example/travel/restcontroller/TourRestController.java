@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -71,7 +73,7 @@ public class TourRestController {
     }
 
     @PostMapping("api/book_tour/")
-    public ResponseEntity<Passenger> passengers(@RequestParam Integer tourId, @RequestParam List<String> passengerInputList) {
+    public ResponseEntity<Passenger> passengers(@RequestParam Integer tourId, @RequestParam List<String> passengerInputList, @RequestParam String startDateTime) {
 
         Set<Passenger> passengersSetList = new HashSet<>();
         for (String passengerName : passengerInputList) {
@@ -82,6 +84,11 @@ public class TourRestController {
 
         Reservation reservation = new Reservation();
         reservation.setPassengers(passengersSetList);
+
+        //parse dateTime
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+
+        reservation.setStartDateAndTime(LocalDateTime.parse(startDateTime, formatter));
         Optional<Tour> tourOptional = tourRepository.findById(tourId);
 
         if (!tourOptional.isPresent()) {
@@ -92,5 +99,11 @@ public class TourRestController {
         reservationRespository.save(reservation);
 
         return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/api/book-tour-2", consumes = "application/json")
+    public ResponseEntity<Reservation> bookTour(@RequestBody Reservation reservation) {
+        reservationRespository.save(reservation);
+        return new ResponseEntity<>(reservation, HttpStatus.OK);
     }
 }

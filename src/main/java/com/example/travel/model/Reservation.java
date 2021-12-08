@@ -1,6 +1,8 @@
 package com.example.travel.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +12,12 @@ public class Reservation {
     @Id
     @GeneratedValue
     Integer reservationId;
+
+    LocalDateTime startDateAndTime;
+
+    LocalDateTime endDateAndTime;
+
+    LocalDateTime reservedDateAndTime;
 
     @ManyToOne
     @JoinColumn(name = "tourId")
@@ -39,5 +47,29 @@ public class Reservation {
 
     public void setPassengers(Set<Passenger> passengers) {
         this.passengers = passengers;
+    }
+
+    public LocalDateTime getStartDateAndTime() {
+        return startDateAndTime;
+    }
+
+    public void setStartDateAndTime(LocalDateTime startDateAndTime) {
+        this.startDateAndTime = startDateAndTime;
+    }
+
+    public LocalDateTime getEndDateAndTime() {
+        return endDateAndTime;
+    }
+
+    public void setEndDateAndTime(LocalDateTime endDateAndTime) {
+        this.endDateAndTime = endDateAndTime;
+    }
+
+    public LocalDateTime getReservedDateAndTime() {
+        return reservedDateAndTime;
+    }
+
+    public void setReservedDateAndTime(LocalDateTime reservedDateAndTime) {
+        this.reservedDateAndTime = reservedDateAndTime;
     }
 }

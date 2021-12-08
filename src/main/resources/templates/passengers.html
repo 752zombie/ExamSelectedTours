@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Passagerer</title>
@@ -17,59 +17,107 @@
     let tour_id = [[${tour_id}]];
     tour_id = parseInt(tour_id)
 
-    let reserveForm = document.createElement("form");
-    reserveForm.setAttribute("method", "post")
-    reserveForm.setAttribute("action", "http://localhost:8080/api/book_tour/")
+    let reservationContainer = document.createElement("div");
+
     let travel_number_id = document.createElement("input")
     travel_number_id.setAttribute("type", "hidden")
     travel_number_id.setAttribute("value", tour_id)
     travel_number_id.setAttribute("name", "tourId")
-    reserveForm.appendChild(travel_number_id)
 
-    for (let i = 0; i<numberOfTickets; i++) {
-        console.log(numberOfTickets)
-        let col = document.createElement("div");
-        col.setAttribute("class", "col-sm-4");
+    reservationContainer.appendChild(travel_number_id)
 
-        let card = document.createElement("div");
-        card.setAttribute("class", "card");
+    createPassengerInputs();
+    createDateInputs();
+    createReserveButton();
 
-        let innerCardBody = document.createElement("div");
-        innerCardBody.setAttribute("class", "card-body");
-
-        let passengerName = document.createElement("h4");
-        let labelText = document.createTextNode("Tilføj passagerens fulde navn");
-        passengerName.setAttribute("class", "card-title");
-        passengerName.appendChild(labelText);
-
-        let passengerNameInput = document.createElement("input");
-        passengerNameInput.setAttribute("class", "form-control")
-        passengerNameInput.style.width = "300px";
-        passengerNameInput.style.marginBottom = "5px";
-        passengerNameInput.setAttribute("type", "text");
-        passengerNameInput.setAttribute("name", "passengerInputList");
-        passengerNameInput.setAttribute("value", passengerNameInput.innerHTML);
-
-
-        col.appendChild(card);
-        card.appendChild(innerCardBody);
-        innerCardBody.appendChild(passengerName);
-        innerCardBody.appendChild(passengerNameInput);
-        reserveForm.appendChild(innerCardBody)
-
-    }
-        let reserveButton = document.createElement("button")
-        reserveButton.setAttribute("type", "submit");
-        reserveButton.setAttribute("class", "btn btn-primary");
-        let buttonText = document.createTextNode("Book rejse");
-
-        reserveButton.appendChild(buttonText);
-        reserveForm.appendChild(reserveButton);
         let outerCardBody = document.createElement("div");
         outerCardBody.setAttribute("class", "card-body");
-        outerCardBody.appendChild(reserveForm);
+        outerCardBody.appendChild(reservationContainer);
 
-        document.getElementById("add_passengers").appendChild(reserveForm);
+        document.getElementById("add_passengers").appendChild(outerCardBody);
+
+
+        function reserveTour() {
+            const url = "http://localhost:8080/api/book-tour-2";
+
+            let reservation = {
+                startDateAndTime : document.getElementById("startDateTimeInput").value
+            }
+
+            const reservationJson = JSON.stringify(reservation);
+
+            let postRequest = {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: reservationJson
+            }
+
+            fetch(url, postRequest).then(response => { if (!response.ok) throw new Error("Network error");
+                return response.json(); })
+
+        }
+
+        function createReserveButton() {
+            let reserveButton = document.createElement("button")
+            reserveButton.setAttribute("class", "btn btn-primary");
+            let buttonText = document.createTextNode("Book rejse");
+            reserveButton.addEventListener("click", reserveTour);
+
+            reservationContainer.appendChild(reserveButton);
+            reserveButton.appendChild(buttonText);
+        }
+
+        function createDateInputs() {
+            let startDateTimeInput = document.createElement("input");
+            startDateTimeInput.setAttribute("type", "datetime-local");
+            startDateTimeInput.setAttribute("name", "startDateTime");
+            startDateTimeInput.setAttribute("id", "startDateTimeInput");
+            const startDateTimeLabel = document.createElement("label");
+            startDateTimeLabel.setAttribute("for", "startDateTimeInput");
+            const startDateTimeLabelText = document.createTextNode("Afgangsdato: ");
+
+
+            reservationContainer.appendChild(startDateTimeLabel);
+            reservationContainer.appendChild(startDateTimeInput);
+            startDateTimeLabel.appendChild(startDateTimeLabelText);
+        }
+
+        function createPassengerInputs() {
+            for (let i = 0; i<numberOfTickets; i++) {
+                console.log(numberOfTickets)
+                let col = document.createElement("div");
+                col.setAttribute("class", "col-sm-4");
+
+                let card = document.createElement("div");
+                card.setAttribute("class", "card");
+
+                let innerCardBody = document.createElement("div");
+                innerCardBody.setAttribute("class", "card-body");
+
+                let passengerName = document.createElement("h4");
+                let labelText = document.createTextNode("Tilføj passagerens fulde navn");
+                passengerName.setAttribute("class", "card-title");
+                passengerName.appendChild(labelText);
+
+                let passengerNameInput = document.createElement("input");
+                passengerNameInput.setAttribute("class", "form-control")
+                passengerNameInput.style.width = "300px";
+                passengerNameInput.style.marginBottom = "5px";
+                passengerNameInput.setAttribute("type", "text");
+                passengerNameInput.setAttribute("name", "passengerInputList");
+                passengerNameInput.setAttribute("value", passengerNameInput.innerHTML);
+
+
+                col.appendChild(card);
+                card.appendChild(innerCardBody);
+                innerCardBody.appendChild(passengerName);
+                innerCardBody.appendChild(passengerNameInput);
+                reservationContainer.appendChild(innerCardBody)
+
+            }
+        }
 
 </script>
 

@@ -1,8 +1,10 @@
 package com.example.travel.controller;
 
 import com.example.travel.model.Passenger;
+import com.example.travel.model.Reservation;
 import com.example.travel.model.Tour;
 import com.example.travel.repository.PassengerRepository;
+import com.example.travel.repository.ReservationRespository;
 import com.example.travel.repository.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +26,9 @@ public class TourController {
     TourRepository tourRepository;
     @Autowired
     PassengerRepository passengerRepository;
+
+    @Autowired
+    ReservationRespository reservationRespository;
 
     @GetMapping("/create-tour")
     public String createTourPage() {
@@ -54,6 +60,15 @@ public class TourController {
 
     @GetMapping("/reserve_tour/add_passengers")
     public String addPassengers() { return "passengers";}
+
+    @GetMapping("/date")
+    public String dateTest() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Reservation reservation = new Reservation();
+        reservation.setReservedDateAndTime(localDateTime);
+        reservationRespository.save(reservation);
+        return "dummy2";
+    }
 
 
 
