@@ -35,7 +35,9 @@ public class Reservation {
         this.reservationId = reservationId;
     }
 
-    //no getter for tour because of infinite recursion
+    public Tour getTour() {
+        return tour;
+    }
 
     public void setTour(Tour tour) {
         this.tour = tour;

@@ -2,11 +2,13 @@ function postTour() {
     const tourName = document.getElementById("tour-name").value;
     const price = document.getElementById("price").value;
     const description = document.getElementById("description").value;
+    const duration = document.getElementById("duration").value;
 
     const tour = {
         tourName : tourName,
         description : description,
-        price : price
+        price : price,
+        durationDays : duration
     }
 
     const tourJSON = JSON.stringify(tour);

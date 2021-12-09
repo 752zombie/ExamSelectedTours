@@ -104,6 +104,16 @@ public class TourRestController {
     @PostMapping(value = "/api/book-tour-2", consumes = "application/json")
     public ResponseEntity<Reservation> bookTour(@RequestBody Reservation reservation) {
 
+        //save when the reservation was made
+        reservation.setReservedDateAndTime(LocalDateTime.now());
+
+        //calculate and save end date
+        int duration = reservation.getTour().getDurationDays();
+        LocalDateTime startDate = reservation.getStartDateAndTime();
+        LocalDateTime endDate = startDate.plusDays(duration);
+        reservation.setEndDateAndTime(endDate);
+
+
         for (Passenger passenger : reservation.getPassengers()) {
             passengerRepository.save(passenger);
         }

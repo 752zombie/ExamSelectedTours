@@ -13,12 +13,14 @@ function displayTour() {
     document.getElementById("tour-name").value = tour.tourName;
     document.getElementById("price").value = tour.price;
     document.getElementById("description").value = tour.description;
+    document.getElementById("duration").value = tour.durationDays;
 }
 
 function saveTour() {
     tour.tourName = document.getElementById("tour-name").value;
     tour.price = document.getElementById("price").value;
     tour.description = document.getElementById("description").value;
+    tour.durationDays = document.getElementById("duration").value;
 
     const url = "http://localhost:8080/api/save-tour"
 

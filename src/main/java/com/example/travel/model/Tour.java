@@ -1,5 +1,7 @@
 package com.example.travel.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +18,9 @@ public class Tour {
     String description;
     Integer price;
     Integer ticketsReserved = 0;
+    Integer durationDays = 2;
 
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "tourId")
     private Set<Reservation> reservation;
@@ -89,5 +93,13 @@ public class Tour {
 
     public void setReservation(Set<Reservation> reservation) {
         this.reservation = reservation;
+    }
+
+    public Integer getDurationDays() {
+        return durationDays;
+    }
+
+    public void setDurationDays(Integer durationDays) {
+        this.durationDays = durationDays;
     }
 }

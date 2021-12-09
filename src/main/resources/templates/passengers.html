@@ -15,7 +15,9 @@
 
     let numberOfTickets = [[${numberOfTickets}]];
     let tour_id = [[${tour_id}]];
-    tour_id = parseInt(tour_id)
+    tour_id = parseInt(tour_id);
+
+    let tour;
 
     let reservationContainer = document.createElement("div");
 
@@ -29,12 +31,19 @@
     createPassengerInputs();
     createDateInputs();
     createReserveButton();
+    fetchTour();
 
         let outerCardBody = document.createElement("div");
         outerCardBody.setAttribute("class", "card-body");
         outerCardBody.appendChild(reservationContainer);
 
         document.getElementById("add_passengers").appendChild(outerCardBody);
+
+
+        function fetchTour() {
+            const url = "http://localhost:8080/api/get-tour/" + tour_id;
+            fetch(url).then(response => response.json()).then(data => tour = data);
+        }
 
 
         function getPassengerInputList() {
@@ -59,7 +68,8 @@
 
             let reservation = {
                 startDateAndTime : document.getElementById("startDateTimeInput").value,
-                passengers : getPassengerInputList()
+                passengers : getPassengerInputList(),
+                tour : tour
             }
 
             const reservationJson = JSON.stringify(reservation);
