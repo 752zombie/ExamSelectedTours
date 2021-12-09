@@ -19,6 +19,10 @@ public class Reservation {
 
     LocalDateTime reservedDateAndTime;
 
+    Integer priceAtReservedTime;
+
+    Integer numberOfPassengers;
+
     @ManyToOne
     @JoinColumn(name = "tourId")
     private Tour tour;
@@ -73,5 +77,21 @@ public class Reservation {
 
     public void setReservedDateAndTime(LocalDateTime reservedDateAndTime) {
         this.reservedDateAndTime = reservedDateAndTime;
+    }
+
+    public Integer getPriceAtReservedTime() {
+        return priceAtReservedTime;
+    }
+
+    public void setPriceAtReservedTime(Integer priceAtReservedTime) {
+        this.priceAtReservedTime = priceAtReservedTime;
+    }
+
+    public Integer getNumberOfPassengers() {
+        return numberOfPassengers;
+    }
+
+    public void setNumberOfPassengers(Integer numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
     }
 }

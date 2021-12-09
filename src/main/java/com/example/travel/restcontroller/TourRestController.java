@@ -113,6 +113,11 @@ public class TourRestController {
         LocalDateTime endDate = startDate.plusDays(duration);
         reservation.setEndDateAndTime(endDate);
 
+        //save price at reserved time
+        reservation.setPriceAtReservedTime(reservation.getTour().getPrice());
+
+        //save number of passengers
+        reservation.setNumberOfPassengers(reservation.getPassengers().size());
 
         for (Passenger passenger : reservation.getPassengers()) {
             passengerRepository.save(passenger);
