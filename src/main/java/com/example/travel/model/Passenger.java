@@ -20,11 +20,19 @@ public class Passenger {
         this.name = name;
     }
 
-    public Integer getPassenger_id() { return passengerId; }
+    public Integer getPassengerId() {
+        return passengerId;
+    }
 
-    public void setPassenger_id(Integer passengerId) { this.passengerId = passengerId; }
+    public void setPassengerId(Integer passengerId) {
+        this.passengerId = passengerId;
+    }
 
-    public String getPassenger() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setPassenger(String passenger) { this.name = passenger; }
+    public void setName(String name) {
+        this.name = name;
+    }
 }

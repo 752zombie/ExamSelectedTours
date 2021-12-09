@@ -103,6 +103,10 @@ public class TourRestController {
 
     @PostMapping(value = "/api/book-tour-2", consumes = "application/json")
     public ResponseEntity<Reservation> bookTour(@RequestBody Reservation reservation) {
+
+        for (Passenger passenger : reservation.getPassengers()) {
+            passengerRepository.save(passenger);
+        }
         reservationRespository.save(reservation);
         return new ResponseEntity<>(reservation, HttpStatus.OK);
     }

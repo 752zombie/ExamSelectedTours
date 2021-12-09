@@ -37,11 +37,29 @@
         document.getElementById("add_passengers").appendChild(outerCardBody);
 
 
+        function getPassengerInputList() {
+            const passengerArray = [];
+            const passengerNodes = document.querySelectorAll(".passenger-input");
+            for (let i = 0; i < passengerNodes.length; i++) {
+                console.log(i);
+                console.log(passengerNodes[i].value);
+                let passenger = {
+                    name : passengerNodes[i].value
+                }
+                passengerArray.push(passenger);
+            }
+
+            console.log(passengerArray);
+
+            return passengerArray;
+        }
+
         function reserveTour() {
             const url = "http://localhost:8080/api/book-tour-2";
 
             let reservation = {
-                startDateAndTime : document.getElementById("startDateTimeInput").value
+                startDateAndTime : document.getElementById("startDateTimeInput").value,
+                passengers : getPassengerInputList()
             }
 
             const reservationJson = JSON.stringify(reservation);
@@ -102,7 +120,7 @@
                 passengerName.appendChild(labelText);
 
                 let passengerNameInput = document.createElement("input");
-                passengerNameInput.setAttribute("class", "form-control")
+                passengerNameInput.setAttribute("class", "form-control passenger-input")
                 passengerNameInput.style.width = "300px";
                 passengerNameInput.style.marginBottom = "5px";
                 passengerNameInput.setAttribute("type", "text");
