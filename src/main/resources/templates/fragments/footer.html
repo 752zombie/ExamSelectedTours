@@ -1,24 +1,30 @@
 
-<!-- Footer -->
-    <footer class="text-center text-lg-start text-white" style="background-color: #C0C0C0">
+    <!--
+        <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+            <div class="container text-center">
+                <small>Copyright &copy; Your Website</small>
+            </div>
+        </footer>
+     -->
+
+    <!-- Footer -->
+    <footer id="sticky-footer" class="text-center text-lg-start text-white" style="background-color: #C0C0C0">
         <div class="container p-4 pb-0">
             <section class="">
                 <div class="row">
+
                     <!-- About Us -->
-                        <div class="col-md-6 mt-md-0 mt-3">
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">About Us</h6>
                         <p>
-                            Vi er et rejsebureau der sælger pakke-og skræddersyet rejser til store dele af verden.
-                            Vi har over 15 års erfaring i rejsebranchen og vores samarbejdspartnere endnu flere år bag sig i hvert enkelt land vi tilbyder rejser til.
-                            Derfor kan vi tilbyde grundigt og omhyggeligt planlagte rejser til mange verdensdele.
+                            We are a travel agency that sells package and tailor-made trips to large parts of the world.
                         </p>
                     </div>
                     <!-- About Us -->
 
-                    <!-- Links -->
-                    <hr class="w-100 clearfix d-md-none" />
+                    <!-- Quick Links -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Links</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Quick Links</h6>
                         <p>
                             <a class="text-white" th:href="@{/createUser}">Create User</a>
                         </p>
@@ -28,24 +34,32 @@
                         <p>
                             <a class="text-white" th:href="@{/create-tour}">Create Tour</a>
                         </p>
-                        <p>
-                            <a class="text-white" th:href="@{/login}">Login</a>
-                        </p>
                     </div>
-                    <!-- Links -->
+                    <!-- Quick Links -->
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
 
                     <!-- Contact -->
-                    <hr class="w-100 clearfix d-md-none"/>
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                        <p>
+                            <a class="text-white">Selected_Tours@travel.dk</a>
+                        </p>
                     </div>
                     <!-- Contact -->
                 </div>
             </section>
         </div>
+        <!-- Grid container -->
 
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">Copyright © 2021 Selected-Tours</div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            <a class="text-white"> Copyright © 2021 Selected-Tours</a>
+        </div>
         <!-- Copyright -->
     </footer>
     <!-- Footer -->

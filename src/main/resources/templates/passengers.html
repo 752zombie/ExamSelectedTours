@@ -106,7 +106,6 @@
             startDateTimeLabel.setAttribute("for", "startDateTimeInput");
             const startDateTimeLabelText = document.createTextNode("Afgangsdato: ");
 
-
             reservationContainer.appendChild(startDateTimeLabel);
             reservationContainer.appendChild(startDateTimeInput);
             startDateTimeLabel.appendChild(startDateTimeLabelText);
@@ -137,19 +136,15 @@
                 passengerNameInput.setAttribute("name", "passengerInputList");
                 passengerNameInput.setAttribute("value", passengerNameInput.innerHTML);
 
-
                 col.appendChild(card);
                 card.appendChild(innerCardBody);
                 innerCardBody.appendChild(passengerName);
                 innerCardBody.appendChild(passengerNameInput);
                 reservationContainer.appendChild(innerCardBody)
-
             }
         }
 
 </script>
-
-
 
 </body>
 </html>
