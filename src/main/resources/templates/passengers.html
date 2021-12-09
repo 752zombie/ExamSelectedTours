@@ -64,7 +64,7 @@
         }
 
         function reserveTour() {
-            const url = "http://localhost:8080/api/book-tour-2";
+            const url = "http://localhost:8080/api/book-tour";
 
             let reservation = {
                 startDateAndTime : document.getElementById("startDateTimeInput").value,
@@ -83,7 +83,7 @@
             }
 
             fetch(url, postRequest).then(response => { if (!response.ok) throw new Error("Network error");
-                return response.json(); })
+                return response.json(); }).then(data => sessionStorage.setItem("reservation", JSON.stringify(data)));
 
         }
 

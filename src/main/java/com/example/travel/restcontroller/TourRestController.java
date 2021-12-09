@@ -72,36 +72,8 @@ public class TourRestController {
         return new ResponseEntity<>(tour, HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("api/book_tour/")
-    public ResponseEntity<Passenger> passengers(@RequestParam Integer tourId, @RequestParam List<String> passengerInputList, @RequestParam String startDateTime) {
 
-        Set<Passenger> passengersSetList = new HashSet<>();
-        for (String passengerName : passengerInputList) {
-            Passenger passenger1 = new Passenger(passengerName);
-            passengerRepository.save(passenger1);
-            passengersSetList.add(passenger1);
-        }
-
-        Reservation reservation = new Reservation();
-        reservation.setPassengers(passengersSetList);
-
-        //parse dateTime
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-
-        reservation.setStartDateAndTime(LocalDateTime.parse(startDateTime, formatter));
-        Optional<Tour> tourOptional = tourRepository.findById(tourId);
-
-        if (!tourOptional.isPresent()) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
-        Tour tour = tourOptional.get();
-        reservation.setTour(tour);
-        reservationRespository.save(reservation);
-
-        return new ResponseEntity<>(null, HttpStatus.OK);
-    }
-
-    @PostMapping(value = "/api/book-tour-2", consumes = "application/json")
+    @PostMapping(value = "/api/book-tour", consumes = "application/json")
     public ResponseEntity<Reservation> bookTour(@RequestBody Reservation reservation) {
 
         //save when the reservation was made
