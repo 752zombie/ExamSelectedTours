@@ -70,6 +70,11 @@ public class TourController {
         return "dummy2";
     }
 
+    @GetMapping("/reservation/receipt")
+    public String receipt() {
+        return "receipt";
+    }
+
 
 
 }
