@@ -8,7 +8,6 @@ function fetchTours() {
 
 }
 
-
 function listTours(tours) {
 
     document.getElementById("tours-container").innerHTML = "";
@@ -34,7 +33,7 @@ function listTours(tours) {
         description.appendChild(descriptionText);
 
         let label = document.createElement("p");
-        let labelText = document.createTextNode("Antal billetter: ");
+        let labelText = document.createTextNode("Amount of tickets: ");
         label.setAttribute("class", "card-text");
         label.appendChild(labelText);
 
@@ -58,7 +57,7 @@ function listTours(tours) {
         let reserveButton = document.createElement("button")
         reserveButton.setAttribute("type", "submit");
         reserveButton.setAttribute("class", "btn btn-primary");
-        let buttonText = document.createTextNode("Reserver");
+        let buttonText = document.createTextNode("Reserve");
 
         reserveButton.appendChild(buttonText);
         reserveForm.appendChild(reserveInput);

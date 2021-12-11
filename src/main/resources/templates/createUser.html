@@ -17,9 +17,9 @@
 <div th:replace="~{fragments/header :: header}"> </div>
 
 <main role="main" class="flex-shrink-0" onclick="fetchUser()">
-    <div class="container mt-5">
+    <div class="container mt-5" style="width: 40rem;">
         <div class="jumbotron">
-            <h2>Create a User</h2>
+            <h2>Create user</h2>
             <button onclick="createUser()">Create Profile</button>
             <div id="create-user" style="display: none">
                 <input type="text" id="firstName" name="firstName" placeholder="First name" >
@@ -40,8 +40,7 @@
 </div>
 <div class="container mt-5">
 </div>
-<div class="container mt-5">
-</div>
+
 <div th:replace="~{fragments/footer :: footer}"></div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>

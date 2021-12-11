@@ -1,3 +1,8 @@
+
+.jumbotron {
+    background-color: aliceblue;
+}
+
 #menu {
     color: floralwhite;
     font-family: "Arial Black";
@@ -10,12 +15,20 @@ body {
     background-repeat: no-repeat;
 }
 
-.jumbotron {
-    background-color: aliceblue;
+.card {
+    margin: 0 auto;
+}
+
+#add_passengers{
+    padding-left: 450px;
+}
+
+#tours{
+    padding-left: 12px;
 }
 
 h1 {
-    font-family: "Verdana";
+    font-family: revert;
     font-width: bold;
     color: black;
     text-align: center;

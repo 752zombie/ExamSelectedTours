@@ -18,7 +18,7 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <main role="main" class="flex-shrink-0">
-    <div class="container mt-5">
+    <div class="container mt-5" style="width: 40rem;">
         <div class="jumbotron">
             <h2>Login</h2>
             <div>
@@ -30,14 +30,14 @@
             <input type="text" class="userInfo" placeholder="User Name">
             <input type="text" class="userInfo" placeholder="Password">
             <button type="submit" class="pbGet">Continue login</button>
-        </div>
-        </div>
 
-        <!-- redirect to createProfile -->
-        <div class="input-fullwidth">
-            <a href="/"><p>Not a member? Sign up now!</p></a>
+            <div class="container mt-5"></div>
+            <!-- redirect to createProfile -->
+            <div class="input-fullwidth">
+                <a href="createUser"><p>Not a member? Sign up now!</p></a>
+            </div>
         </div>
-    </div>
+        </div>
     </div>
 </main>
 
