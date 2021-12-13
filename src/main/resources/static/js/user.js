@@ -62,7 +62,7 @@ function refresh() {
     document.getElementById("create-user").innerHTML = "";
     fetchUser();
 }
-
+//test
 let userLogin = {
     "firstName": "",
     "password": "",
